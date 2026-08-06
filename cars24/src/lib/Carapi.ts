@@ -8,6 +8,9 @@ export const getCarSummaries = async () => {
   return response.json();
 };
 
+// Alias to fix the casing mismatch with buy-car/index.tsx
+export const getcarSummaries = getCarSummaries;
+
 type CarDetails = {
   title: string;
   images: string[];
