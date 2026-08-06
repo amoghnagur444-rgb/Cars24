@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:5203/api";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5203";
+const BASE_URL = `${API_BASE}/api/Booking`;
 
 type CarDetails = {
   title: string;

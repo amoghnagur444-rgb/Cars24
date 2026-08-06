@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:5203/api/UserAuth";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5203";
+const BASE_URL = `${API_BASE}/api/User`;
 
 export const signup = async (
   email: string,

@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:5203/api/Booking";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5203";
+const BASE_URL = `${API_BASE}/api/Cars`; // (or whatever your car endpoint route is)
 
 export const createBooking = async (userid: string, Booking: any) => {
   const response = await fetch(`${BASE_URL}?userId=${userid}`, {
