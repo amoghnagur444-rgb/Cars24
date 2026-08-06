@@ -1,7 +1,7 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5203";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5203";
 
 export const getCarSummaries = async () => {
-  const response = await fetch(`${API_BASE}/api/summaries`);
+  const response = await fetch(`${BASE_URL}/api/summaries`);
   if (!response.ok) {
     throw new Error("Failed to fetch car summaries");
   }
@@ -25,8 +25,9 @@ type CarDetails = {
   features: string[];
   highlights: string[];
 };
+
 export const createCar = async (carDetails: CarDetails) => {
-  const response = await fetch(`${BASE_URL}`, {
+  const response = await fetch(`${BASE_URL}/api/car`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,11 +36,8 @@ export const createCar = async (carDetails: CarDetails) => {
   });
   return response.json();
 };
+
 export const getcarByid = async (id: string) => {
-  const response = await fetch(`${BASE_URL}/${id}`);
-  return response.json();
-};
-export const getcarSummaries = async () => {
-  const response = await fetch(`${BASE_URL}/summaries`);
+  const response = await fetch(`${BASE_URL}/api/car/${id}`);
   return response.json();
 };
