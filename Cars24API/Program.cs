@@ -9,7 +9,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000") 
+            // Replaced single origin with multiple specific origins
+            policy.WithOrigins(
+                    "http://localhost:3000", 
+                    "cars24-4xtzunxyl-amoghnagur444-rgbs-projects.vercel.app" 
+                  ) 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -61,4 +65,3 @@ app.MapGet("/db-check", async () =>
 app.MapControllers();
 
 app.Run();
-
