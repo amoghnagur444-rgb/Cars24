@@ -19,7 +19,7 @@ interface Car {
   emi: string;
   price: string;
   location: string;
-  image: string[];
+  image: string;
 }
 
 function LoaderCard() {
