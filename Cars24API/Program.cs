@@ -3,17 +3,13 @@ using Cars24API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Define your specific frontend CORS policy
+// 1. Define your CORS policy to allow any origin (Bulletproof for Vercel deployments)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            // Replaced single origin with multiple specific origins
-            policy.WithOrigins(
-                    "http://localhost:3000", 
-                    "cars24-4xtzunxyl-amoghnagur444-rgbs-projects.vercel.app" 
-                  ) 
+            policy.AllowAnyOrigin()
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
